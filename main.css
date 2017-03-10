@@ -1,0 +1,158 @@
+/* line 1, C:/wamp/www/learning/handyblob/styles/main.scss */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+#Jahreszahl {
+    pointer-events: none;
+    color: rgba(0, 0, 0, 0.14);
+    position: fixed;
+    top: -33px;
+    right: 10px;
+    font-size: 335px;
+    /* font-family: 'Allerta Stencil', sans-serif; */
+    font-family: 'Fjalla One', sans-serif;
+    /* font-family: 'Open Sans Condensed', sans-serif; */
+    font-weight: 300;
+}
+  
+/* line 7, C:/wamp/www/learning/handyblob/styles/main.scss */
+#wrapper {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; }
+
+/*# sourceMappingURL=main.css.map */
+
+#guioverlay{
+  position: absolute;
+  width:0px;
+}
+#slider{
+      position: fixed;
+    bottom: 40px;
+    left: 25%;
+
+}
+
+
+.range-container {
+
+    left: 25%;
+	width: 600px;
+	display: -webkit-flex;
+	-webkit-flex-wrap: wrap;
+	margin-top: 2rem;
+}
+
+
+.slider-container {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+}
+.slider {
+	position: absolute;
+	left:0;
+	width: 50%;
+}
+
+.range-fill {
+  
+	top:4px;
+	left:4px;
+	background-color: lightslategray;
+	height: 0.4rem;
+	pointer-events: none;
+	border-radius: 10px;
+}
+
+input[type=range] {
+	-webkit-appearance: none;
+	-webkit-flex-basis: 100%;
+	-webkit-tap-highlight-color: transparent;
+	background: transparent;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 10rem;
+    height: 0.2rem;
+    background: transparent;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#789b42+0,cdeb8e+100 */
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#789b42+0,cdeb8e+100 */
+background: #789b42; /* Old browsers */
+background: -moz-linear-gradient(left,  #789b42 0%, #cdeb8e 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left,  #789b42 0%,#cdeb8e 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right,  #789b42 0%,#cdeb8e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#789b42', endColorstr='#cdeb8e',GradientType=1 ); /* IE6-9 */
+
+    border: 0px solid yellowgreen;
+    border-radius: 10px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    
+    height: 27px;;
+    width: 27px;
+    border-radius: 0%;
+	background-image:url("../handler.png");
+    margin-top: -12px;
+    border: 0px solid #789b42;
+    cursor: pointer;
+    /*box-shadow: 0px 5px 5px -3px #000;*/
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+/*MEDIA QUERIES*/
+
+@media (max-width:992px){ 
+
+
+
+#slider{
+      position: fixed;
+    bottom: 100px;
+    left: 10%;
+
+}
+
+.slider {
+  position: absolute;
+  left: 1%;
+	width: 80%;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 10rem;
+    height: 0.5rem;
+    border-radius: 10px;
+    bottom:100px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 50px;;
+    width: 50px;
+    border-radius: 0%;
+	background-image:url("../handlermobil.png");
+    margin-top: -22px;
+   
+    
+ 
+
+	}
+}
+/*
+@media(min-width:1200px){
+	.range-container {
+		width: 80%;
+	}
+	.label {
+		max-width: 10rem;
+	}
+}
