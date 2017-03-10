@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>HandyBlob</title>
+    <link href="https://fonts.googleapis.com/css?family=Allerta+Stencil|Fjalla+One|Open+Sans+Condensed:300,700" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+<style>
+#Jahreszahl {color: rgba(220, 220, 220, 0.28);}
+
+
+input[type=range]::-webkit-slider-runnable-track {
+   
+
+background: #DCDCDC !important;
+
+    border: 0px solid #DCDCDC;
+   
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    
+    height: 27px;;
+    width: 27px;
+    border-radius: 0%;
+	
+    margin-top: -12px;
+    
+    cursor: pointer;
+    /*box-shadow: 0px 5px 5px -3px #000;*/
+}
+
+
+
+
+</style>
+</head>
+<body>
+    <div id="wrapper"></div>
+    <div id="guioverlay">
+
+        <p id="Jahreszahl"></p>
+
+        <div class="range-container">
+		    <div class="slider-container">
+			    <input id="slider" class="slider" type="range"  min="0" max="100" step="0.01" value="1">
+		    </div>		
+        </div>
+    </div>
+    
+    
+    <script src="scripts/lib/TweenMax/TweenMax.min.js"></script>
+    <script src="scripts/lib/three/build/three.min.js"></script>
+    <script src="scripts/lib/tdhooper/sliceGeometry.js"></script>
+    <script src="scripts/lib/three/examples/js/modifiers/SubdivisionModifier.js"></script>
+    <script src="scripts/lib/three/examples/js/libs/tween.min.js"></script>
+    <script src="scripts/lib/three/examples/js/utils/GeometryUtils.js"></script>
+    <script src="scripts/lib/controls/OrbitControls.js"></script>
+    <script src="scripts/lib/controls/THREEx.DeviceOrientationState.js"></script>
+    <script src="scripts/lib/tinycolor/tinycolor.js"></script>
+    <script src="scripts/DataCircles.js"></script>
+    <script src="scripts/DataBlob.js"></script>
+    <!--<script src="scripts/Data2D.js"></script>-->
+    <script src="scripts/bev3.js"></script>
+    <script src="scripts/Data2D_animated.js"></script>
+    <script src="scripts/beamer.js"></script>
+    
+
+
+<!-- Slider -->
+    <script>
+
+        var slide = document.getElementById("slider"),
+        sliderP = document.getElementById("Jahreszahl");
+        var sliderprozent;
+        var sliderdata = getBevData();
+        var testlength = sliderdata.length - 1;
+        var _idx;
+        
+        sliderP.innerHTML = sliderdata[0].label;
+        _dataBlob.moveToIndex(1);
+        _dataCircles.moveToIndex(1);
+
+        slide.onchange = function(e) {
+      
+            _idx = Math.round( this.value / 100  * testlength );
+            console.log(_idx);
+
+            //Slidersnap
+            sliderprozent = (_idx / testlength) * 100;
+            slide.value = sliderprozent;
+            console.log(sliderprozent);
+
+            if (_idx == 0 || _idx <3){
+                _idx = 1;
+            }
+
+            if (_idx <3){
+                _idx = 1;
+                sliderP.innerHTML = sliderdata[_idx-1].label;
+                _dataBlob.moveToIndex(_idx,5000);
+                _dataCircles.moveToIndex(_idx,5000);
+                _dataCurve.moveToIndex(_idx);
+
+            } else{
+                sliderP.innerHTML = sliderdata[_idx -2 ].label;
+            	
+
+            _dataBlob.moveToIndex(_idx);
+            _dataCircles.moveToIndex(_idx);
+             _dataCurve.moveToIndex(_idx,1000);
+            }
+    
+            
+        }
+    
+    </script>
+
+</body>
+</html>
