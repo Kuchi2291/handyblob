@@ -122,7 +122,7 @@ function initThree(){
     _camera2D.position.z = 25;
 
     // renderer
-    _renderer = new THREE.WebGLRenderer();
+    _renderer = new THREE.WebGLRenderer({antialias:true});
      //autoClear false = zwei szenen werden gleichzeitig angezeigt
     _renderer.autoClear = false;
     _renderer.setSize( window.innerWidth, window.innerHeight );
