@@ -16,11 +16,11 @@
         <div class="range-container">
 		    <div class="slider-container">
 			    <input id="slider" class="slider" type="range"  min="0" max="100" step="0.01" value="1">
-		    </div>		
+		    </div>
         </div>
     </div>
-    
-    
+
+
     <script src="scripts/lib/TweenMax/TweenMax.min.js"></script>
     <script src="scripts/lib/three/build/three.min.js"></script>
     <script src="scripts/lib/tdhooper/sliceGeometry.js"></script>
@@ -36,10 +36,10 @@
     <script src="scripts/bev3.js"></script>
     <script src="scripts/Data2D_animated.js"></script>
     <script src="scripts/main.js"></script>
-    
 
 
-<!-- Slider -->
+
+<!-- Slider to scroll through data -->
     <script>
 
         var slide = document.getElementById("slider"),
@@ -48,13 +48,13 @@
         var sliderdata = getBevData();
         var testlength = sliderdata.length - 1;
         var _idx;
-        
+
         sliderP.innerHTML = sliderdata[0].label;
         _dataBlob.moveToIndex(1);
         _dataCircles.moveToIndex(1);
 
         slide.onchange = function(e) {
-      
+
             _idx = Math.round( this.value / 100  * testlength );
             console.log(_idx);
 
@@ -76,16 +76,16 @@
 
             } else{
                 sliderP.innerHTML = sliderdata[_idx -2 ].label;
-            	
+
 
             _dataBlob.moveToIndex(_idx);
             _dataCircles.moveToIndex(_idx);
              _dataCurve.moveToIndex(_idx,1000);
             }
-    
-            
+
+
         }
-    
+
     </script>
 
 </body>
